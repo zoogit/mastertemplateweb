@@ -32,7 +32,13 @@ export default function RequestDemoForm() {
   }
 
   return (
-    <form name="request-demo" onSubmit={handleSubmit} className="bg-white p-8">
+    <form
+      name="request-demo"
+      method="POST"
+      action="/__forms.html"
+      onSubmit={handleSubmit}
+      className="bg-white p-8"
+    >
       <input type="hidden" name="form-name" value="request-demo" />
       <div className="grid gap-5">
         <FormInput label="Name" name="name" required />
