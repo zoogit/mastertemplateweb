@@ -1,0 +1,134 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: "Stack Sans Headline";
+  src: url("/fonts/static/StackSansHeadline-ExtraLight.ttf") format("truetype");
+  font-weight: 200;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Stack Sans Headline";
+  src: url("/fonts/static/StackSansHeadline-Light.ttf") format("truetype");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Stack Sans Headline";
+  src: url("/fonts/static/StackSansHeadline-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Stack Sans Headline";
+  src: url("/fonts/static/StackSansHeadline-Medium.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Stack Sans Headline";
+  src: url("/fonts/static/StackSansHeadline-SemiBold.ttf") format("truetype");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Stack Sans Headline";
+  src: url("/fonts/static/StackSansHeadline-Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  color: #1c1c1c;
+  background: #f1f2f3;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: "Stack Sans Headline", Arial, sans-serif;
+  background: #f1f2f3;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+::selection {
+  background: #f0682c;
+  color: white;
+}
+
+.container-page {
+  width: min(100% - 40px, 1180px);
+  margin-inline: auto;
+}
+
+.product-hero-frame {
+  --page-pad: max(20px, calc((100vw - 1180px) / 2));
+}
+
+@media (min-width: 1280px) {
+  .container-page {
+    width: min(100% - 64px, 1360px);
+  }
+
+  .product-hero-frame {
+    --page-pad: max(32px, calc((100vw - 1360px) / 2));
+  }
+}
+
+.fade-in {
+  animation: fadeIn 0.7s ease both;
+}
+
+.logo-marquee {
+  animation: logoMarquee 32s linear infinite;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes logoMarquee {
+  from {
+    transform: translateX(-50%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
