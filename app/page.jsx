@@ -123,12 +123,12 @@ export default function HomePage() {
           <div className="absolute inset-0 bg-paper/16" />
           <div className="container-page relative flex min-h-[380px] items-center justify-center text-center">
             <div>
-              <blockquote className="mx-auto max-w-3xl text-[34px] font-medium leading-[1.28] text-white">
+              <blockquote className="mx-auto max-w-3xl text-[32px] font-medium leading-[1.28] text-white">
                 <span className="box-decoration-clone bg-blaze px-2 py-1 text-white">
                   “Finally, a platform built specifically for presentation teams.”
                 </span>
               </blockquote>
-              <p className="mt-7 text-2xl font-medium text-white/88">
+              <p className="mt-7 text-[24px] font-medium text-white/88">
                 — Morgan Ellis, Creative Operations Director
               </p>
             </div>
@@ -151,7 +151,7 @@ export default function HomePage() {
                     />
                   </div>
                 </div>
-                <h3 className="mt-7 text-center text-2xl font-semibold text-black">
+                <h3 className="mt-7 text-center text-[24px] font-semibold text-black">
                   Choose your layouts
                 </h3>
               </div>
@@ -168,7 +168,7 @@ export default function HomePage() {
                     />
                   </div>
                 </div>
-                <h3 className="mt-7 text-center text-2xl font-semibold text-black">
+                <h3 className="mt-7 text-center text-[24px] font-semibold text-black">
                   Total control over styling
                 </h3>
               </div>
@@ -187,7 +187,7 @@ export default function HomePage() {
                     />
                   </div>
                 </div>
-                <h3 className="mt-7 text-center text-2xl font-semibold text-black">
+                <h3 className="mt-7 text-center text-[24px] font-semibold text-black">
                   Master the details
                 </h3>
               </div>

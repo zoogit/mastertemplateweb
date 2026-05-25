@@ -19,7 +19,7 @@ export default function Header() {
   return (
     <header className="sticky top-0 z-50 border-b border-white/10 bg-blaze text-white">
       <div className="bg-coal text-white">
-        <div className="container-page flex h-10 items-center justify-end gap-7 text-xs font-light tracking-wide">
+        <div className="container-page flex h-10 items-center justify-end gap-7 text-sm font-light tracking-wide">
           <button type="button" className="text-white/78 transition hover:text-white">
             Login
           </button>
@@ -35,7 +35,7 @@ export default function Header() {
               aria-label="Choose language"
             >
               <span aria-hidden="true">{languages[0].flag}</span>
-              <span className="text-xs text-white/65 transition group-open:rotate-180">▾</span>
+              <span className="text-sm text-white/65 transition group-open:rotate-180">▾</span>
             </summary>
             <div className="absolute right-0 top-[calc(100%+10px)] min-w-[56px] border border-white/10 bg-coal py-2 shadow-soft">
               {languages.map((language) => (

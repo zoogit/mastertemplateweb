@@ -55,7 +55,7 @@ export default function QualityControllerPage() {
 
         <section className="bg-paper py-20">
           <div className="container-page">
-            <h2 className="mb-10 text-3xl font-bold text-coal">Key features</h2>
+            <h2 className="mb-10 text-[32px] font-bold text-coal">Key features</h2>
             <div className="grid gap-8 md:grid-cols-3">
               {features.map((feature) => (
                 <FeatureCard key={feature.title} {...feature} />
@@ -68,7 +68,7 @@ export default function QualityControllerPage() {
           <div className="container-page grid gap-12 lg:grid-cols-[0.85fr_1.15fr]">
             <div>
               <SectionLabel className="mb-4">What it checks</SectionLabel>
-              <h2 className="text-4xl font-bold leading-tight text-coal">
+              <h2 className="text-[40px] font-bold leading-tight text-coal">
                 A review layer built for presentation production.
               </h2>
               <p className="mt-6 text-sm leading-7 text-coal/70">

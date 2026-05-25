@@ -64,7 +64,7 @@ export default function ConverterPage() {
         <section className="bg-[linear-gradient(to_bottom,#1C1C1C_0%,#1C1C1C_46%,#F1F2F3_46%,#F1F2F3_100%)] py-20">
           <div className="container-page">
             <div className="mx-auto mb-12 max-w-6xl text-center text-white">
-              <h2 className="text-[34px] font-medium leading-[1.12] md:text-[54px]">
+              <h2 className="text-[32px] font-medium leading-[1.12] md:text-[56px]">
                 We know manual template conversion eats up production time.
               </h2>
             </div>
@@ -72,7 +72,7 @@ export default function ConverterPage() {
             <div className="bg-white px-8 py-12 md:px-14 lg:px-20 lg:py-20">
               <div className="grid items-center gap-12 lg:grid-cols-[0.95fr_0.85fr]">
                 <div>
-                  <h3 className="text-center text-[25px] font-bold leading-tight text-coal md:text-left md:text-[31px]">
+                  <h3 className="text-center text-[24px] font-bold leading-tight text-coal md:text-left md:text-[32px]">
                     From 30 minutes a slide to 30 seconds.
                   </h3>
                   <div className="mt-8 space-y-7">
@@ -113,7 +113,7 @@ export default function ConverterPage() {
 
         <section className="bg-paper py-20">
           <div className="container-page">
-            <h2 className="mb-10 text-3xl font-bold text-coal">Key features</h2>
+            <h2 className="mb-10 text-[32px] font-bold text-coal">Key features</h2>
             <div className="grid gap-8 md:grid-cols-3">
               {features.map((feature) => (
                 <FeatureCard key={feature.title} {...feature} />
@@ -126,7 +126,7 @@ export default function ConverterPage() {
           <div className="container-page grid gap-12 lg:grid-cols-[0.85fr_1.15fr]">
             <div>
               <SectionLabel className="mb-6">Use cases</SectionLabel>
-              <h2 className="text-4xl font-bold leading-tight text-coal">
+              <h2 className="text-[40px] font-bold leading-tight text-coal">
                 For teams that live in PowerPoint.
               </h2>
               <p className="mt-6 text-sm leading-7 text-coal/70">
@@ -159,7 +159,7 @@ export default function ConverterPage() {
                     />
                   </div>
                 </div>
-                <h3 className="mt-7 text-center text-2xl font-semibold text-black">
+                <h3 className="mt-7 text-center text-[24px] font-semibold text-black">
                   Choose your layouts
                 </h3>
               </div>
@@ -176,7 +176,7 @@ export default function ConverterPage() {
                     />
                   </div>
                 </div>
-                <h3 className="mt-7 text-center text-2xl font-semibold text-black">
+                <h3 className="mt-7 text-center text-[24px] font-semibold text-black">
                   Total control over styling
                 </h3>
               </div>
@@ -195,7 +195,7 @@ export default function ConverterPage() {
                     />
                   </div>
                 </div>
-                <h3 className="mt-7 text-center text-2xl font-semibold text-black">
+                <h3 className="mt-7 text-center text-[24px] font-semibold text-black">
                   Master the details
                 </h3>
               </div>
@@ -208,7 +208,7 @@ export default function ConverterPage() {
             <div>
               <SectionLabel className="mb-12">Testimonial</SectionLabel>
               <figure className="max-w-3xl">
-                <blockquote className="text-[30px] font-medium leading-[1.22] text-coal md:text-[42px]">
+                <blockquote className="text-[32px] font-medium leading-[1.22] text-coal md:text-[40px]">
                   "We used to spend days moving client decks into new templates by hand. Now we drop them into Master Template Converter and get the heavy lifting done in less than fifteen minutes. It honestly changed how we plan production."
                 </blockquote>
                 <figcaption className="mt-8 text-lg font-medium text-coal/70">
@@ -231,7 +231,7 @@ export default function ConverterPage() {
         <section className="bg-coal py-20 text-white">
           <div className="container-page">
             <SectionLabel className="mb-4 bg-blaze text-white">Workflow</SectionLabel>
-            <h2 className="mb-10 text-4xl font-bold">From source deck to converted output</h2>
+            <h2 className="mb-10 text-[40px] font-bold">From source deck to converted output</h2>
             <div className="grid gap-4 md:grid-cols-5">
               {workflow.map((step, index) => (
                 <div key={step} className="border border-white/10 bg-white/5 p-5">

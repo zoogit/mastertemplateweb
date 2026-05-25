@@ -14,7 +14,7 @@ export default function ProductCard({
   return (
     <article className="group">
       <a href={href} className="block">
-        <h3 className="text-[28px] font-medium leading-tight text-white md:text-[34px]">{title}</h3>
+        <h3 className="text-[24px] font-medium leading-tight text-white md:text-[32px]">{title}</h3>
         <p className="mt-2 max-w-[520px] text-[14px] font-light leading-6 text-white/78 md:text-[16px]">
           {intro}
         </p>

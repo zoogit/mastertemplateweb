@@ -49,11 +49,11 @@ export default function ProductPageHero({
             <h1 className="text-[40px] font-semibold leading-[1.04] tracking-[0] text-black md:text-[56px]">
               {title}
             </h1>
-            <p className="mt-7 text-[15px] font-normal leading-7 tracking-[0] text-black/72">{copy}</p>
+            <p className="mt-7 text-[16px] font-normal leading-7 tracking-[0] text-black/72">{copy}</p>
 
             {bullets?.length > 0 && (
               <div className="mt-8">
-                <SectionLabel variant="dark" className="px-4 py-2 text-xs">
+                <SectionLabel variant="dark" className="px-4 py-2 text-sm">
                   Features
                 </SectionLabel>
                 {featureNote ? (
@@ -61,7 +61,7 @@ export default function ProductPageHero({
                     {featureNote}
                   </p>
                 ) : null}
-                <ul className="mt-4 space-y-2.5 pl-5 text-xs font-medium leading-5 tracking-[0] text-black">
+                <ul className="mt-4 space-y-2.5 pl-5 text-sm font-medium leading-5 tracking-[0] text-black">
                   {bullets.map((bullet) => (
                     <li key={bullet} className="list-disc">
                       {bullet}

@@ -50,10 +50,10 @@ export default function Hero({
           ) : null}
           <div className="relative z-10">
             {eyebrow && <p className="mb-5 text-sm font-semibold uppercase text-blaze">{eyebrow}</p>}
-            <h1 className="max-w-[520px] text-[38px] font-medium leading-[1.04] tracking-[0] text-white md:text-[62px] lg:text-coal">
+            <h1 className="max-w-[520px] text-[40px] font-medium leading-[1.04] tracking-[0] text-white md:text-[56px] lg:text-coal">
               {title}
             </h1>
-            <p className="mt-6 max-w-lg text-[15px] font-medium leading-7 text-white/90 lg:text-coal/80">{copy}</p>
+            <p className="mt-6 max-w-lg text-[16px] font-medium leading-7 text-white/90 lg:text-coal/80">{copy}</p>
             <div className="mt-8 flex flex-wrap gap-3">
               {secondaryHref && (
                 <Button href={secondaryHref} variant="dark">
