@@ -9,7 +9,7 @@ const nextConfig = {
         headers: [
           {
             key: "Content-Security-Policy",
-            value: "frame-ancestors 'self' https://nimamaghame.com"
+            value: "frame-ancestors 'self' https://nimamaghame.com https://www.nimamaghame.com"
           }
         ]
       }
