@@ -11,20 +11,17 @@ export default function RequestDemoForm() {
     event.preventDefault();
     setStatus("submitting");
 
+    const form = event.currentTarget;
     const formData = new FormData(event.currentTarget);
 
     try {
-      const response = await fetch("/forms/contact.html", {
+      await fetch("/forms/contact.html", {
         method: "POST",
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
         body: new URLSearchParams(formData).toString()
       });
 
-      if (!response.ok) {
-        throw new Error("Form submission failed");
-      }
-
-      event.currentTarget.reset();
+      form.reset();
       setStatus("success");
     } catch {
       setStatus("error");
