@@ -1,7 +1,6 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import Button from "@/components/Button";
-import { FormInput, FormTextarea } from "@/components/FormFields";
+import RequestDemoForm from "@/components/RequestDemoForm";
 
 export default function RequestDemoPage() {
   return (
@@ -21,29 +20,7 @@ export default function RequestDemoPage() {
             </p>
           </div>
 
-          <form
-            name="request-demo"
-            method="POST"
-            data-netlify="true"
-            netlify-honeypot="bot-field"
-            className="bg-white p-8"
-          >
-            <input type="hidden" name="form-name" value="request-demo" />
-            <p className="hidden">
-              <label>
-                Do not fill this out: <input name="bot-field" />
-              </label>
-            </p>
-            <div className="grid gap-5">
-              <FormInput label="Name" name="name" required />
-              <FormInput label="Work email" name="email" type="email" required />
-              <FormInput label="Company" name="company" required />
-              <FormTextarea label="Message" name="message" />
-              <Button type="submit" className="mt-2 w-full">
-                Submit Request
-              </Button>
-            </div>
-          </form>
+          <RequestDemoForm />
         </section>
       </main>
       <Footer />
