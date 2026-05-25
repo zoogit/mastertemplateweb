@@ -14,7 +14,7 @@ export default function RequestDemoForm() {
     const formData = new FormData(event.currentTarget);
 
     try {
-      const response = await fetch("/__forms/", {
+      const response = await fetch("/forms/contact.html", {
         method: "POST",
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
         body: new URLSearchParams(formData).toString()
@@ -35,7 +35,7 @@ export default function RequestDemoForm() {
     <form
       name="request-demo"
       method="POST"
-      action="/__forms/"
+      action="/forms/contact.html"
       onSubmit={handleSubmit}
       className="bg-white p-8"
     >
