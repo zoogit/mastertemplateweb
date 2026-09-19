@@ -18,7 +18,7 @@ const languages = [
 export default function Header() {
   return (
     <header className="sticky top-0 z-50 border-b border-white/10 bg-blaze text-white">
-      <div className="bg-coal text-white">
+      <div className="hidden bg-coal text-white md:block">
         <div className="container-page flex h-10 items-center justify-end gap-7 text-sm font-light tracking-wide">
           <button type="button" className="text-white/78 transition hover:text-white">
             Login
