@@ -1,9 +1,10 @@
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
-import ProductPageHero from "@/components/ProductPageHero";
-import FeatureCard from "@/components/FeatureCard";
-import CTASection from "@/components/CTASection";
-import SectionLabel from "@/components/SectionLabel";
+import ProductHero from "@/components/ProductHero";
+import FeatureGrid from "@/components/FeatureGrid";
+import CTA from "@/components/CTA";
+import Reveal from "@/components/Reveal";
+import Eyebrow from "@/components/Eyebrow";
+
+export const metadata = { title: "Master Template QC" };
 
 const checks = [
   "Styling consistency",
@@ -42,52 +43,53 @@ const heroBullets = [
 export default function QualityControllerPage() {
   return (
     <>
-      <Header />
-      <main>
-        <ProductPageHero
-          title="Master Template QC"
-          copy="The Quality Controller scans PowerPoint files and gives QC feedback on consistency, formatting, brand standards, template usage, and common presentation design issues. It gives presentation departments a faster way to catch the small details that create rework before decks reach clients or internal stakeholders."
-          bullets={heroBullets}
-          featureNote="Coming Soon"
-          topImage="/assets/images/117186.jpg"
-          showcaseImage="/assets/quality-control.png"
-        />
+      <ProductHero
+        title="Master Template QC"
+        copy="The Quality Controller scans PowerPoint files and gives QC feedback on consistency, formatting, brand standards, template usage, and common presentation design issues. It gives presentation departments a faster way to catch the small details that create rework before decks reach clients or internal stakeholders."
+        bullets={heroBullets}
+        note="Coming Soon"
+        topImage="/assets/images/117186.jpg"
+        image="/assets/quality-control.png"
+      />
 
-        <section className="bg-paper py-20">
-          <div className="container-page">
-            <h2 className="mb-10 text-[32px] font-bold text-coal">Key features</h2>
-            <div className="grid gap-8 md:grid-cols-3">
-              {features.map((feature) => (
-                <FeatureCard key={feature.title} {...feature} />
+      <FeatureGrid features={features} />
+
+      <section className="on-coal bg-coal text-paper">
+        <div className="wrap py-16 md:py-28">
+          <div className="grid gap-12 md:grid-cols-12 md:gap-8">
+            <div className="md:col-span-5">
+              <Reveal>
+                <Eyebrow>What it checks</Eyebrow>
+              </Reveal>
+              <Reveal delay={80}>
+                <h2 className="h2 mt-8">A review layer built for presentation production.</h2>
+              </Reveal>
+              <Reveal delay={160}>
+                <p className="mt-8 max-w-md text-[16px] leading-[1.6] text-paper/75">
+                  Master Template QC gives presentation departments a faster way to catch the small issues that create rework: inconsistent styles, off-brand colors, broken formatting, missed margins, and layout drift.
+                </p>
+              </Reveal>
+            </div>
+            <ul className="m-0 grid list-none grid-cols-2 gap-0 p-0 md:col-span-6 md:col-start-7">
+              {checks.map((c, i) => (
+                <Reveal
+                  key={c}
+                  as="li"
+                  delay={(i % 4) * 60}
+                  className={`flex min-h-[130px] flex-col justify-between border-t border-paper/35 py-5 md:min-h-[160px] ${
+                    i % 2 === 1 ? "border-l pl-5" : "pr-5"
+                  }`}
+                >
+                  <span className="h-1 w-8 bg-blaze" aria-hidden="true" />
+                  <span className="text-[18px] font-medium leading-[1.15] tracking-[-0.015em] md:text-[24px]">{c}</span>
+                </Reveal>
               ))}
-            </div>
+            </ul>
           </div>
-        </section>
+        </div>
+      </section>
 
-        <section className="bg-white py-20">
-          <div className="container-page grid gap-12 lg:grid-cols-[0.85fr_1.15fr]">
-            <div>
-              <SectionLabel className="mb-4">What it checks</SectionLabel>
-              <h2 className="text-[40px] font-bold leading-tight text-coal">
-                A review layer built for presentation production.
-              </h2>
-              <p className="mt-6 text-sm leading-7 text-coal/70">
-                Master Template QC gives presentation departments a faster way to catch the small issues that create rework: inconsistent styles, off-brand colors, broken formatting, missed margins, and layout drift.
-              </p>
-            </div>
-            <div className="grid grid-cols-2 gap-4">
-              {checks.map((check) => (
-                <div key={check} className="border border-coal/10 bg-paper p-5 text-sm font-bold text-coal">
-                  {check}
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        <CTASection title="Put QC feedback into every delivery workflow" showButton={false} />
-      </main>
-      <Footer />
+      <CTA title="Put QC feedback into every delivery workflow" accent="every delivery workflow" showButton={false} />
     </>
   );
 }

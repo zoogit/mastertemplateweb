@@ -1,92 +1,63 @@
 import Link from "next/link";
 import Image from "next/image";
-import Button from "./Button";
+import MobileMenu from "./MobileMenu";
 
-const navItems = [
+export const navItems = [
   { href: "/", label: "Home" },
   { href: "/converter", label: "Converter" },
   { href: "/quality-controller", label: "Quality Controller" },
   { href: "/#features", label: "Features" }
 ];
 
-const languages = [
-  { label: "English", flag: "🇺🇸" },
-  { label: "Deutsch", flag: "🇩🇪" },
-  { label: "Francais", flag: "🇫🇷" }
+export const utilityItems = [
+  { href: "#", label: "Login" },
+  { href: "/request-demo", label: "Contact Us" },
+  { href: "#", label: "Support" }
 ];
 
 export default function Header() {
   return (
-    <header className="sticky top-0 z-50 border-b border-white/10 bg-blaze text-white">
-      <div className="hidden bg-coal text-white md:block">
-        <div className="container-page flex h-10 items-center justify-end gap-7 text-sm font-light tracking-wide">
-          <button type="button" className="text-white/78 transition hover:text-white">
-            Login
-          </button>
-          <Link href="/request-demo" className="text-white/78 transition hover:text-white">
-            Contact Us
-          </Link>
-          <button type="button" className="text-white/78 transition hover:text-white">
-            Support
-          </button>
-          <details className="group relative">
-            <summary
-              className="flex cursor-pointer list-none items-center gap-2 text-lg text-white/90 transition hover:text-white [&::-webkit-details-marker]:hidden"
-              aria-label="Choose language"
-            >
-              <span aria-hidden="true">{languages[0].flag}</span>
-              <span className="text-sm text-white/65 transition group-open:rotate-180">▾</span>
-            </summary>
-            <div className="absolute right-0 top-[calc(100%+10px)] min-w-[56px] border border-white/10 bg-coal py-2 shadow-soft">
-              {languages.map((language) => (
-                <button
-                  key={language.label}
-                  type="button"
-                  aria-label={language.label}
-                  className="block w-full px-4 py-1.5 text-left text-lg transition hover:bg-white/10"
-                >
-                  <span aria-hidden="true">{language.flag}</span>
-                </button>
-              ))}
-            </div>
-          </details>
+    <>
+      <div className="hidden bg-coal text-paper md:block">
+        <div className="wrap flex h-9 items-center justify-end gap-8 text-[13px]">
+          {utilityItems.map((item) => (
+            <Link key={item.label} href={item.href} className="link-wipe opacity-80 transition hover:opacity-100">
+              {item.label}
+            </Link>
+          ))}
         </div>
       </div>
-      <div className="container-page flex h-16 items-center justify-between">
-        <Link href="/" className="flex items-center">
-          <Image
-            src="/assets/logo/NEWTYPE-03.svg"
-            alt="Master Template"
-            width={168}
-            height={50}
-            priority
-          />
-        </Link>
-        <div className="ml-auto flex items-center gap-4 md:gap-8">
-          <nav className="hidden items-center gap-7 text-sm font-light md:flex">
+      <header className="sticky top-0 z-50 border-b border-coal bg-paper">
+        <div className="wrap flex h-16 items-center justify-between gap-6 md:h-[72px]">
+          <Link href="/" aria-label="Master Template home" className="flex shrink-0 items-center">
+            <Image
+              src="/assets/logo/NEWTYPE-04.svg"
+              alt="Master Template"
+              width={168}
+              height={37}
+              priority
+              className="h-8 w-auto md:h-9"
+            />
+          </Link>
+          <nav className="hidden items-center gap-9 text-[14px] font-medium uppercase tracking-[0.02em] lg:flex" aria-label="Primary">
             {navItems.map((item) => (
-              <Link key={item.href} href={item.href} className="transition hover:text-paper">
+              <Link key={item.href} href={item.href} className="link-wipe py-2">
                 {item.label}
               </Link>
             ))}
           </nav>
-          <details className="group relative md:hidden">
-            <summary className="cursor-pointer list-none border border-white/35 px-3 py-2 text-sm font-semibold transition hover:bg-white/10 [&::-webkit-details-marker]:hidden">
-              Menu
-            </summary>
-            <nav className="absolute right-0 top-[calc(100%+10px)] grid min-w-48 gap-1 bg-coal p-3 text-sm shadow-soft">
-              {navItems.map((item) => (
-                <Link key={item.href} href={item.href} className="px-3 py-2 transition hover:bg-white/10">
-                  {item.label}
-                </Link>
-              ))}
-            </nav>
-          </details>
-          <Button href="/request-demo" variant="dark" className="hidden px-4 py-2 sm:inline-flex">
-            Request Demo
-          </Button>
+          <div className="flex items-center gap-3">
+            <Link
+              href="/request-demo"
+              className="link-arrow hidden items-center gap-2 text-[14px] font-medium uppercase tracking-[0.02em] lg:inline-flex"
+            >
+              <span className="link-wipe py-2">Request Demo</span>
+              <span className="arrow" aria-hidden="true">↗</span>
+            </Link>
+            <MobileMenu nav={navItems} utility={utilityItems} />
+          </div>
         </div>
-      </div>
-    </header>
+      </header>
+    </>
   );
 }

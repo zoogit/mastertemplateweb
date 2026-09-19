@@ -1,10 +1,12 @@
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
-import ProductPageHero from "@/components/ProductPageHero";
-import FeatureCard from "@/components/FeatureCard";
-import CTASection from "@/components/CTASection";
-import SectionLabel from "@/components/SectionLabel";
 import Image from "next/image";
+import ProductHero from "@/components/ProductHero";
+import FeatureGrid from "@/components/FeatureGrid";
+import Showcase from "@/components/Showcase";
+import CTA from "@/components/CTA";
+import Reveal from "@/components/Reveal";
+import Eyebrow from "@/components/Eyebrow";
+
+export const metadata = { title: "Master Template Converter" };
 
 const workflow = [
   "Upload the source deck",
@@ -44,212 +46,162 @@ const useCases = [
   "Brand teams standardizing old presentations"
 ];
 
+const process = [
+  {
+    label: "Manual process",
+    copy: "Teams copy content into a new file, then adjust every table, graph, line weight, text box, image, color, and layout detail by hand."
+  },
+  {
+    label: "Converter",
+    copy: "Master Template Converter moves slide content into the new template and handles the tedious styling work."
+  },
+  {
+    label: "Final output",
+    copy: "Your team gets a converted PPT that is ready to review, polish, and send forward."
+  }
+];
+
 export default function ConverterPage() {
   return (
     <>
-      <Header />
-      <main>
-        <ProductPageHero
-          title="Master Template Converter"
-          copy="Master Template Converter helps teams move PowerPoint content from one file into the template and styling of another. It is built for marketing, finance, consulting, agency, and presentation teams that spend too much time rebuilding slides by hand."
-          bullets={heroBullets}
-          topImage="/assets/images/13249.jpg"
-          topImageClassName="object-top"
-          showcaseImage="/assets/converter-overview.png"
-          showcaseVideoMp4="/assets/video/Comp%201.mp4"
-          ctaHref="/request-demo"
-          ctaLabel="Request a Demo"
-        />
+      <ProductHero
+        title="Master Template Converter"
+        copy="Master Template Converter helps teams move PowerPoint content from one file into the template and styling of another. It is built for marketing, finance, consulting, agency, and presentation teams that spend too much time rebuilding slides by hand."
+        bullets={heroBullets}
+        topImage="/assets/images/13249.jpg"
+        topImageClassName="object-top"
+        image="/assets/converter-overview.png"
+        video="/assets/video/Comp%201.mp4"
+        ctaHref="/request-demo"
+        ctaLabel="Request a Demo"
+      />
 
-        <section className="bg-[linear-gradient(to_bottom,#1C1C1C_0%,#1C1C1C_46%,#F1F2F3_46%,#F1F2F3_100%)] py-20">
-          <div className="container-page">
-            <div className="mx-auto mb-12 max-w-6xl text-center text-white">
-              <h2 className="text-[32px] font-medium leading-[1.12] md:text-[56px]">
-                We know manual template conversion eats up production time.
-              </h2>
-            </div>
-
-            <div className="bg-white px-8 py-12 md:px-14 lg:px-20 lg:py-20">
-              <div className="grid items-center gap-12 lg:grid-cols-[0.95fr_0.85fr]">
-                <div>
-                  <h3 className="text-center text-[24px] font-bold leading-tight text-coal md:text-left md:text-[32px]">
-                    From 30 minutes a slide to 30 seconds.
-                  </h3>
-                  <div className="mt-8 space-y-7">
-                    <div className="border-t border-coal/16 pt-5">
-                      <p className="text-sm font-semibold uppercase text-blaze">Manual process</p>
-                      <p className="mt-2 text-sm leading-7 text-coal/70">
-                        Teams copy content into a new file, then adjust every table, graph, line weight, text box, image, color, and layout detail by hand.
-                      </p>
-                    </div>
-                    <div className="border-t border-coal/16 pt-5">
-                      <p className="text-sm font-semibold uppercase text-blaze">Converter</p>
-                      <p className="mt-2 text-sm leading-7 text-coal/70">
-                        Master Template Converter moves slide content into the new template and handles the tedious styling work.
-                      </p>
-                    </div>
-                    <div className="border-t border-coal/16 pt-5">
-                      <p className="text-sm font-semibold uppercase text-blaze">Final output</p>
-                      <p className="mt-2 text-sm leading-7 text-coal/70">
-                        Your team gets a converted PPT that is ready to review, polish, and send forward.
-                      </p>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="relative min-h-[320px] overflow-hidden bg-paper lg:min-h-[460px]">
-                  <Image
-                    src="/assets/images/55.png"
-                    alt=""
-                    fill
-                    sizes="(min-width: 1024px) 38vw, 100vw"
-                    className="object-cover"
-                  />
-                </div>
+      {/* Problem statement */}
+      <section className="on-coal bg-coal text-paper">
+        <div className="wrap py-16 md:py-28">
+          <Reveal>
+            <h2 className="h2 max-w-[20ch]">
+              We know manual template conversion <span className="accent">eats up production time.</span>
+            </h2>
+          </Reveal>
+          <div className="mt-14 grid gap-12 md:mt-24 md:grid-cols-12 md:gap-8">
+            <div className="md:col-span-6">
+              <Reveal>
+                <h3 className="h3">From 30 minutes a slide to 30 seconds.</h3>
+              </Reveal>
+              <div className="mt-10">
+                {process.map((row, i) => (
+                  <Reveal key={row.label} delay={i * 80} className="rule-t grid gap-3 py-6 sm:grid-cols-[150px_1fr]">
+                    <p className="eyebrow accent pt-1">{row.label}</p>
+                    <p className="text-[16px] leading-[1.6] text-paper/75">{row.copy}</p>
+                  </Reveal>
+                ))}
               </div>
             </div>
+            <Reveal delay={120} className="md:col-span-5 md:col-start-8">
+              <div className="relative aspect-[4/5] overflow-hidden bg-paper">
+                <Image src="/assets/images/55.png" alt="" fill sizes="(min-width: 768px) 40vw, 100vw" className="object-cover" />
+              </div>
+            </Reveal>
           </div>
-        </section>
+        </div>
+      </section>
 
-        <section className="bg-paper py-20">
-          <div className="container-page">
-            <h2 className="mb-10 text-[32px] font-bold text-coal">Key features</h2>
-            <div className="grid gap-8 md:grid-cols-3">
-              {features.map((feature) => (
-                <FeatureCard key={feature.title} {...feature} />
+      <FeatureGrid features={features} />
+
+      {/* Use cases */}
+      <section className="bg-paper">
+        <div className="wrap rule-t py-16 md:py-28">
+          <div className="grid gap-12 md:grid-cols-12 md:gap-8">
+            <div className="md:col-span-5">
+              <Reveal>
+                <Eyebrow>Use cases</Eyebrow>
+              </Reveal>
+              <Reveal delay={80}>
+                <h2 className="h2 mt-8">For teams that live in PowerPoint.</h2>
+              </Reveal>
+              <Reveal delay={160}>
+                <p className="mt-8 max-w-md text-[16px] leading-[1.6] text-coal/75">
+                  Converter is useful any time a deck needs to move into a new template, a new brand system, or a cleaner production format without rebuilding every slide from scratch.
+                </p>
+              </Reveal>
+            </div>
+            <ul className="m-0 list-none p-0 md:col-span-6 md:col-start-7">
+              {useCases.map((u, i) => (
+                <Reveal
+                  key={u}
+                  as="li"
+                  delay={i * 70}
+                  className="group flex items-baseline justify-between gap-6 border-t border-coal py-6 text-[24px] font-medium leading-[1.15] tracking-[-0.02em] last:border-b md:py-8 md:text-[30px]"
+                >
+                  <span>{u}</span>
+                  <span className="arrow accent shrink-0 text-[0.8em]" aria-hidden="true">↗</span>
+                </Reveal>
               ))}
-            </div>
+            </ul>
           </div>
-        </section>
+        </div>
+      </section>
 
-        <section className="bg-white py-20">
-          <div className="container-page grid gap-12 lg:grid-cols-[0.85fr_1.15fr]">
-            <div>
-              <SectionLabel className="mb-6">Use cases</SectionLabel>
-              <h2 className="text-[40px] font-bold leading-tight text-coal">
-                For teams that live in PowerPoint.
-              </h2>
-              <p className="mt-6 text-sm leading-7 text-coal/70">
-                Converter is useful any time a deck needs to move into a new template, a new brand system, or a cleaner production format without rebuilding every slide from scratch.
-              </p>
-            </div>
-            <div className="grid gap-4 sm:grid-cols-2">
-              {useCases.map((useCase) => (
-                <div key={useCase} className="border border-coal/10 bg-paper p-6 text-lg font-semibold leading-snug text-coal">
-                  {useCase}
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
+      <Showcase />
 
-        <section className="bg-white py-20">
-          <div className="container-page">
-            <SectionLabel className="mb-14">Features</SectionLabel>
-            <div className="grid gap-x-8 gap-y-14 md:grid-cols-2">
-              <div>
-                <div className="rounded-lg bg-black p-7">
-                  <div className="relative aspect-[2.1] overflow-hidden bg-white">
-                    <Image
-                      src="/assets/converter-overview.png"
-                      alt=""
-                      fill
-                      sizes="(min-width: 768px) 50vw, 100vw"
-                      className="object-cover"
-                    />
-                  </div>
-                </div>
-                <h3 className="mt-7 text-center text-[24px] font-semibold text-black">
-                  Choose your layouts
-                </h3>
+      {/* Testimonial */}
+      <section className="bg-paper">
+        <div className="wrap rule-t py-16 md:py-28">
+          <div className="grid items-center gap-12 md:grid-cols-12 md:gap-8">
+            <div className="md:col-span-7">
+              <Reveal>
+                <Eyebrow>Testimonial</Eyebrow>
+              </Reveal>
+              <Reveal delay={80}>
+                <figure className="m-0 mt-10">
+                  <blockquote className="m-0 text-[28px] font-medium leading-[1.15] tracking-[-0.025em] md:text-[44px]">
+                    "We used to spend days moving client decks into new templates by hand. Now we drop them into Master Template Converter and get the heavy lifting done in less than fifteen minutes. It honestly changed how we plan production."
+                  </blockquote>
+                  <figcaption className="eyebrow mt-8 text-coal/70">Presentation Design Lead</figcaption>
+                </figure>
+              </Reveal>
+            </div>
+            <Reveal delay={160} className="md:col-span-4 md:col-start-9">
+              <div className="relative aspect-[4/5] overflow-hidden bg-white">
+                <Image src="/assets/images/tero1.png" alt="" fill sizes="(min-width: 768px) 32vw, 100vw" className="object-cover" />
               </div>
-
-              <div>
-                <div className="rounded-lg bg-black p-7">
-                  <div className="relative aspect-[2.1] overflow-hidden bg-white">
-                    <Image
-                      src="/assets/quality-control.png"
-                      alt=""
-                      fill
-                      sizes="(min-width: 768px) 50vw, 100vw"
-                      className="object-cover"
-                    />
-                  </div>
-                </div>
-                <h3 className="mt-7 text-center text-[24px] font-semibold text-black">
-                  Total control over styling
-                </h3>
-              </div>
-            </div>
-
-            <div className="mt-14 flex justify-center">
-              <div className="w-full max-w-[580px]">
-                <div className="rounded-lg bg-black p-7">
-                  <div className="relative aspect-[1.65] overflow-hidden bg-white">
-                    <Image
-                      src="/assets/layout-mapping.png"
-                      alt=""
-                      fill
-                      sizes="(min-width: 768px) 580px, 100vw"
-                      className="object-cover"
-                    />
-                  </div>
-                </div>
-                <h3 className="mt-7 text-center text-[24px] font-semibold text-black">
-                  Master the details
-                </h3>
-              </div>
-            </div>
+            </Reveal>
           </div>
-        </section>
+        </div>
+      </section>
 
-        <section className="bg-paper py-20">
-          <div className="container-page grid items-center gap-12 lg:grid-cols-[1fr_0.78fr]">
-            <div>
-              <SectionLabel className="mb-12">Testimonial</SectionLabel>
-              <figure className="max-w-3xl">
-                <blockquote className="text-[32px] font-medium leading-[1.22] text-coal md:text-[40px]">
-                  "We used to spend days moving client decks into new templates by hand. Now we drop them into Master Template Converter and get the heavy lifting done in less than fifteen minutes. It honestly changed how we plan production."
-                </blockquote>
-                <figcaption className="mt-8 text-lg font-medium text-coal/70">
-                  Presentation Design Lead
-                </figcaption>
-              </figure>
-            </div>
-            <div className="relative min-h-[320px] overflow-hidden bg-white shadow-soft lg:min-h-[460px]">
-              <Image
-                src="/assets/images/tero1.png"
-                alt=""
-                fill
-                sizes="(min-width: 1024px) 38vw, 100vw"
-                className="object-cover"
-              />
-            </div>
-          </div>
-        </section>
+      {/* Workflow */}
+      <section className="on-coal bg-coal text-paper">
+        <div className="wrap py-16 md:py-28">
+          <Reveal>
+            <Eyebrow>Workflow</Eyebrow>
+          </Reveal>
+          <Reveal delay={80}>
+            <h2 className="h2 mt-8 max-w-[18ch]">From source deck to converted output</h2>
+          </Reveal>
+          <ol className="m-0 mt-14 grid list-none gap-0 p-0 md:mt-24 md:grid-cols-5">
+            {workflow.map((step, i) => (
+              <Reveal
+                key={step}
+                as="li"
+                delay={i * 80}
+                className={`rule-t py-8 md:pb-4 md:pr-6 ${i > 0 ? "md:border-l md:border-paper/35 md:pl-6" : ""}`}
+              >
+                <div className="text-[44px] font-medium leading-none tracking-[-0.04em] accent md:text-[56px]">0{i + 1}</div>
+                <h3 className="mt-8 text-[20px] font-medium leading-[1.2] tracking-[-0.01em] md:mt-14">{step}</h3>
+              </Reveal>
+            ))}
+          </ol>
+        </div>
+      </section>
 
-        <section className="bg-coal py-20 text-white">
-          <div className="container-page">
-            <SectionLabel className="mb-4 bg-blaze text-white">Workflow</SectionLabel>
-            <h2 className="mb-10 text-[40px] font-bold">From source deck to converted output</h2>
-            <div className="grid gap-4 md:grid-cols-5">
-              {workflow.map((step, index) => (
-                <div key={step} className="border border-white/10 bg-white/5 p-5">
-                  <div className="mb-6 text-sm font-bold text-peach">0{index + 1}</div>
-                  <h3 className="text-lg font-bold">{step}</h3>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        <CTASection
-          title="Buy Master Template Converter"
-          copy="Cut the manual production work and convert PowerPoint decks into new templates in minutes. Deck content is not saved or committed to memory. Converter does the conversion, gives you the converted PowerPoint file, and leaves your content where it belongs."
-          buttonLabel="Buy the Product"
-        />
-      </main>
-      <Footer />
+      <CTA
+        title="Buy Master Template Converter"
+        accent="Converter"
+        copy="Cut the manual production work and convert PowerPoint decks into new templates in minutes. Deck content is not saved or committed to memory. Converter does the conversion, gives you the converted PowerPoint file, and leaves your content where it belongs."
+        buttonLabel="Buy the Product"
+      />
     </>
   );
 }

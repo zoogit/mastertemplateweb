@@ -1,29 +1,28 @@
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
 import RequestDemoForm from "@/components/RequestDemoForm";
+import Reveal from "@/components/Reveal";
+
+export const metadata = { title: "Request Demo | Master Template" };
 
 export default function RequestDemoPage() {
   return (
-    <>
-      <Header />
-      <main className="bg-paper">
-        <section className="container-page grid min-h-[720px] gap-12 py-20 lg:grid-cols-[0.85fr_1.15fr]">
-          <div>
-            <p className="mb-5 inline-flex bg-coal px-5 py-3 text-base font-semibold leading-none text-white">
-              Request Demo
-            </p>
-            <h1 className="text-[56px] font-bold leading-[0.98] text-coal md:text-[72px]">
-              See Master Template with your team’s workflow.
+    <section className="bg-paper">
+      <div className="wrap grid gap-14 pb-20 pt-12 md:grid-cols-12 md:gap-8 md:pb-32 md:pt-20">
+        <div className="md:col-span-6">
+          <Reveal delay={80}>
+            <h1 className="display max-w-[10ch]">
+              See Master Template with your <span className="accent">team’s workflow.</span>
             </h1>
-            <p className="mt-7 max-w-lg text-base leading-7 text-coal/70">
+          </Reveal>
+          <Reveal delay={160}>
+            <p className="lede mt-8 max-w-lg text-coal/80">
               Tell us a little about your presentation team, the products you are interested in, and the workflow you want to improve. We will follow up with a focused demo.
             </p>
-          </div>
-
+          </Reveal>
+        </div>
+        <Reveal delay={200} className="md:col-span-5 md:col-start-8 md:pt-24">
           <RequestDemoForm />
-        </section>
-      </main>
-      <Footer />
-    </>
+        </Reveal>
+      </div>
+    </section>
   );
 }
